@@ -1,0 +1,10 @@
+CanDrA
+perl open_candra.pl SCSC SKCM_candra.txt > SKCM_candra_output.txt
+
+MutSigCV
+MutSigCV('SKCM.maf','exome_full192.coverage.txt','gene.covariates.txt','Mut_SKCM.txt','mutation_type_dictionary_file.txt','chr_files_hg19')
+
+OncodriveCLUST (using maftools package in R)
+#reading maf files
+laml=read.maf(maf = laml.maf, clinicalData = laml.clin)
+laml.sig = oncodrive(maf = laml, AACol = 'Protein_Change', minMut = 5, pvalMethod = 'zscore')
